@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ExampleView from '../views/exampleView';
 
