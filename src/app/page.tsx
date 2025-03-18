@@ -1,18 +1,4 @@
 import Image from "next/image";
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import ExampleView from '../views/exampleView';
-
-// const App: React.FC = () => {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/example" element={<ExampleView />} />
-//         {/* Add more routes here */}
-//       </Routes>
-//     </Router>
-//   );
-// };
-// export default App;
 
 export default function Home() {
   return (
