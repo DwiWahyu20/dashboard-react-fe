@@ -2,7 +2,8 @@ import React from 'react';
 // import React, { useEffect, useState } from 'react';
 // import { fetchExampleData } from '../controllers/exampleController';
 
-const ExampleView: React.FC = () => {
+// const ExampleView: React.FC = () => {
+  const ExampleView = () => {
   // const [data, setData] = useState<any>(null);
 
   // useEffect(() => {
