@@ -1,19 +1,17 @@
 'use client'
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-
-export default function LandingPage() {
+export default function Home() {
   const router = useRouter();
 
-  const redirectToPage = () => {
-    router.push('/home'); // Adjust the path if necessary
+  const navigateToDashboard = () => {
+    router.push('/dashboard');
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <Button onClick={redirectToPage}>
-        Go to Page
-      </Button>
+    <div>
+      <h1>Welcome to the Landing Page</h1>
+      <Button onClick={navigateToDashboard}>Go to Page</Button>
     </div>
   );
 }
