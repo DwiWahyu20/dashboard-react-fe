@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <h1 className={styles.title}>Welcome to the Landing Page</h1>
+        <h1 className={styles.title}>Welcome to Project Deucalion</h1>
         <form className={styles.form}>
           <div className={styles.inputGroup}>
             <label htmlFor="username" className={styles.label}>Username</label>
@@ -25,7 +25,7 @@ export default function Home() {
           </div>
           <Button type="submit" className={styles.button}>Login</Button>
         </form>
-        <Button onClick={navigateToDashboard} className={styles.button}>Go to Dashboard</Button>
+        <Button onClick={navigateToDashboard} className={styles.button}>ByPass</Button>
       </div>
     </div>
   );
