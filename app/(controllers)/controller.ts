@@ -6,11 +6,13 @@ interface ControllerResponse<T> {
 }
 
 export const forwardResponse = async <T>(): Promise<T> => {
+    var result;
     try {
         const response: ControllerResponse<T> = await fetchData('/cors');
-        return response.data;
+        result =  response.data;
     } catch (error) {
         console.error('Error fetching data:', error);
         throw error;
     }
+    return result;
 };

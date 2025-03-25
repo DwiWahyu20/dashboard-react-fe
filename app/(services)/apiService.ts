@@ -2,6 +2,9 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_URL,
+  headers: {
+    'X-API-KEY': process.env.REACT_APP_API_KEY
+  }
 });
 
 interface ApiResponse<T> {
