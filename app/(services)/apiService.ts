@@ -8,15 +8,22 @@ interface ApiResponse<T> {
     data: T;
 }
 
-export const fetchData = async <T>(endpoint: string): Promise<T> => {
+export const fetchData = async <T>(endpoint: string, filter?: string, expand?: string): Promise<T> => {
     try {
+      let params = {};
+      if (filter) {
+        params = { ...params, filter };
+      }
+      if (expand) {
+        params = { ...params, expand };
+      }
       // Dummy data response
         // const response: ApiResponse<T> = {
         //   data: {
         //     message: 'This is a dummy response'
         //   } as T
         // };
-        const response: ApiResponse<T> = await api.get(endpoint);
+        const response: ApiResponse<T> = await api.get(endpoint, { params });
         return response.data;
     } catch (error) {
         console.error('Error fetching data:', error);
