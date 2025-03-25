@@ -1,6 +1,6 @@
 export default {
   env: {
-    REACT_APP_BACKEND_URL: process.env.REACT_APP_BACKEND_URL,
+    REACT_APP_BACKEND_URL: 'http://ws.dashboard.project-deucalion.com',
   },
   images: {
     remotePatterns: [
