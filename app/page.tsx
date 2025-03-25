@@ -8,7 +8,7 @@ import styles from './page.module.css';
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  console.log('Dashboard data:', process.env);
+  console.log('Backend URL:', process.env.REACT_APP_BACKEND_URL); // Debugging line
 
   const navigateToDashboard = async() => {
     // router.push('/dashboard');
