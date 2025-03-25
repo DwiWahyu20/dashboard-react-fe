@@ -8,10 +8,10 @@ import styles from './page.module.css';
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  console.log('Dashboard data:', process.env);
 
   const navigateToDashboard = async() => {
     // router.push('/dashboard');
-    console.log('Dashboard data:', process.env.REACT_APP_BACKEND_URL);
     setIsLoading(true);
     try {
       const data = await fetchData('/cors');
