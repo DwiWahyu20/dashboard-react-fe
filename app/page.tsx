@@ -1,13 +1,27 @@
 'use client'
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
+import { fetchData, postData } from 'app/(services)/apiService';
 import styles from './page.module.css';
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const navigateToDashboard = () => {
-    router.push('/dashboard');
+  const navigateToDashboard = async() => {
+    // router.push('/dashboard');
+    console.log('Dashboard data:', process.env.REACT_APP_BACKEND_URL);
+    setIsLoading(true);
+    try {
+      const data = await fetchData('/cors');
+      console.log('Dashboard data:', data);
+      router.push('/dashboard');
+    } catch (error) {
+      console.error('Failed to navigate to dashboard:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -25,7 +39,7 @@ export default function Home() {
           </div>
           <Button type="submit" className={styles.button}>Login</Button>
         </form>
-        <Button onClick={navigateToDashboard} className={styles.button}>ByPass</Button>
+        <Button onClick={navigateToDashboard} className={styles.button} isLoading={isLoading}>ByPass</Button>
       </div>
     </div>
   );
