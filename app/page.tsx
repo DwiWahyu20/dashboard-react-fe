@@ -13,7 +13,6 @@ export default function Home() {
   useEffect(() => {
     forwardResponse()
       .then(data => {
-        throw {};
         setData(data);
       })
       .catch(error => {
