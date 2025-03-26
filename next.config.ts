@@ -1,21 +1,27 @@
-export default {
-  env: {
-    REACT_APP_BACKEND_URL: process.env.REACT_APP_BACKEND_URL,
-    AUTH_SECRET: process.env.AUTH_SECRET, // Add this line
-    REACT_APP_API_KEY: process.env.REACT_APP_API_KEY
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: process.env.IS_OUTPUT_EXPORT ? "export" : "standalone",
+  // basePath: "/",
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/login",
+        basePath: false,
+        permanent: false,
+      },
+    ];
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-        search: ''
+        protocol: "https",
+        hostname: "static.justboil.me",
       },
-      {
-        protocol: 'https',
-        hostname: '*.public.blob.vercel-storage.com',
-        search: ''
-      }
-    ]
-  }
+    ],
+  },
 };
+
+export default nextConfig;

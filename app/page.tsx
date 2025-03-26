@@ -1,45 +1,41 @@
-'use client'
-import { useState,useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { fetchData, postData } from 'app/(services)/apiService';
-import { forwardResponse } from 'app/(controllers)/controller';
-import styles from './page.module.css';
+import SectionMain from "./_components/Section/Main";
+import { gradientBgPurplePink } from "./_lib/colors";
+import { appTitle } from "./_lib/config";
+import { Metadata } from "next";
+import StylePickBox from "./_components/StyleSelect/StylePickBox";
+import { Suspense } from "react";
+import { OnVisit } from "./_components/StyleSelect/OnVisit";
 
-export default function Home() {
-  const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
+export const metadata: Metadata = {
+  title: appTitle,
+};
 
-  const navigateToDashboard = async() => {
-    // router.push('/dashboard');
-    setIsLoading(true);
-    try {
-      const data = await fetchData('/cors');
-      router.push('/dashboard');
-    } catch (error) {
-      console.error('Failed to navigate to dashboard:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+export default function StyleSelectPage() {
+  const styles = ["white", "basic"];
 
   return (
-    <div className={styles.container}>
-      <div className={styles.card}>
-        <h1 className={styles.title}>Welcome to Project Deucalion</h1>
-        <form className={styles.form}>
-          <div className={styles.inputGroup}>
-            <label htmlFor="username" className={styles.label}>Username</label>
-            <input type="text" id="username" name="username" className={styles.input} />
-          </div>
-          <div className={styles.inputGroup}>
-            <label htmlFor="password" className={styles.label}>Password</label>
-            <input type="password" id="password" name="password" className={styles.input} />
-          </div>
-          <Button type="submit" className={styles.button}>Login</Button>
-        </form>
-        <Button onClick={navigateToDashboard} className={styles.button} isLoading={isLoading}>ByPass</Button>
-      </div>
+    <div
+      className={`flex min-h-screen items-center justify-center ${gradientBgPurplePink}`}
+    >
+      <Suspense fallback={null}>
+        <OnVisit />
+      </Suspense>
+      <SectionMain>
+        <h1 className="text-4xl md:text-5xl text-center text-white font-bold mt-12 mb-3 lg:mt-0">
+          Pick a style&hellip;
+        </h1>
+        <h2 className="text-xl md:text-xl text-center text-white mb-12">
+          Style switching with a single{" "}
+          <code className="px-1.5 py-0.5 rounded-sm bg-white/20">
+            action()
+          </code>
+        </h2>
+        <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 max-w-6xl mx-auto">
+          {styles.map((style) => (
+            <StylePickBox key={style} style={style} />
+          ))}
+        </div>
+      </SectionMain>
     </div>
   );
 }
