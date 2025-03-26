@@ -9,18 +9,6 @@ import styles from './page.module.css';
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const [tempData, setData] = useState<any>(null);
-  useEffect(() => {
-    forwardResponse()
-      .then(data => {
-        setData(data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
-  console.log('Dashboard data:', tempData)
-
 
   const navigateToDashboard = async() => {
     // router.push('/dashboard');
