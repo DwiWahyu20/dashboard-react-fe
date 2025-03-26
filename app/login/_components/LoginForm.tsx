@@ -46,11 +46,11 @@ export default function LoginForm() {
 
         <Divider />
 
-        <Buttons>
-          <Button type="submit" label="Login" color="info" isGrouped />
+        <Buttons type="justify-center">
+          <Button type="submit" label="Login" color="info" className="items-center" isGrouped />
           <Button
             href="/dashboard"
-            label="Home"
+            label="ByPass"
             color="info"
             outline
             isGrouped

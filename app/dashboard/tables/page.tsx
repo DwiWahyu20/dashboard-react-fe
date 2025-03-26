@@ -3,7 +3,7 @@ import {
   mdiMonitorCellphone,
   mdiTableBorder,
   mdiTableOff,
-} from "@mdi/js";
+} from "@mdi/js"; //npm install @mdi/js
 import Button from "../../_components/Button";
 import CardBox from "../../_components/CardBox";
 import CardBoxComponentEmpty from "../../_components/CardBox/Component/Empty";
@@ -12,6 +12,7 @@ import SectionMain from "../../_components/Section/Main";
 import SectionTitleLineWithButton from "../../_components/Section/TitleLineWithButton";
 import TableSampleClients from "../_components/Table/SampleClients";
 import { getPageTitle } from "../../_lib/config";
+import { fetchData, postData } from '../../_services/apiServices';
 import { clients } from "../_lib/sampleData";
 import { Metadata } from "next";
 
@@ -20,10 +21,21 @@ export const metadata: Metadata = {
 };
 
 export default function TablesPage() {
+  const funcAsync = async() => {
+    try {
+      const data = await fetchData('/cors');
+      console.log(data)
+    } catch (error) {
+      console.error('Failed to navigate to dashboard:', error);
+    }
+  };
+  funcAsync();
+
+
   return (
     <SectionMain>
       <SectionTitleLineWithButton icon={mdiTableBorder} title="Tables" main>
-        <Button
+        {/* <Button
           href="https://github.com/justboil/admin-one-react-tailwind"
           target="_blank"
           icon={mdiGithub}
@@ -31,7 +43,7 @@ export default function TablesPage() {
           color="contrast"
           roundedFull
           small
-        />
+        /> */}
       </SectionTitleLineWithButton>
 
       <NotificationBar color="info" icon={mdiMonitorCellphone}>
