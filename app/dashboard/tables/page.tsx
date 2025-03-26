@@ -1,10 +1,10 @@
 import {
-  mdiGithub,
+  // mdiGithub,
   mdiMonitorCellphone,
   mdiTableBorder,
   mdiTableOff,
 } from "@mdi/js"; //npm install @mdi/js
-import Button from "../../_components/Button";
+// import Button from "../../_components/Button";
 import CardBox from "../../_components/CardBox";
 import CardBoxComponentEmpty from "../../_components/CardBox/Component/Empty";
 import NotificationBar from "../../_components/NotificationBar";
@@ -12,7 +12,7 @@ import SectionMain from "../../_components/Section/Main";
 import SectionTitleLineWithButton from "../../_components/Section/TitleLineWithButton";
 import TableSampleClients from "../_components/Table/SampleClients";
 import { getPageTitle } from "../../_lib/config";
-import { fetchData, postData } from '../../_services/apiServices';
+import { callApi} from '../../_services/apiServices';
 import { clients } from "../_lib/sampleData";
 import { Metadata } from "next";
 
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function TablesPage() {
   const funcAsync = async() => {
     try {
-      const data = await fetchData('/cors');
+      const data = await callApi('GET','/cors');
       console.log(data)
     } catch (error) {
       console.error('Failed to navigate to dashboard:', error);

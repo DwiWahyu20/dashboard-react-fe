@@ -1,7 +1,7 @@
 import {
   mdiAccountCircle,
-  mdiMonitor,
-  mdiGithub,
+  // mdiMonitor,
+  // mdiGithub,
   mdiLock,
   mdiAlertCircle,
   mdiSquareEditOutline,
@@ -10,7 +10,7 @@ import {
   mdiTelevisionGuide,
   mdiResponsive,
   mdiPalette,
-  mdiVuejs,
+  // mdiVuejs,
 } from "@mdi/js";
 import { MenuAsideItem } from "../../_interfaces";
 
