@@ -18,7 +18,7 @@ export default function LoginForm() {
   const router = useRouter();
 
   const handleSubmit = (formValues: LoginForm) => {
-    router.push("/dashboard");
+    router.push("/dashboard/tables");
     console.log("Form values", formValues);
   };
 
@@ -49,7 +49,7 @@ export default function LoginForm() {
         <Buttons type="justify-center">
           <Button type="submit" label="Login" color="info" className="items-center" isGrouped />
           <Button
-            href="/dashboard"
+            href="/dashboard/tables"
             label="ByPass"
             color="info"
             outline

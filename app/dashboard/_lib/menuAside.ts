@@ -15,11 +15,11 @@ import {
 import { MenuAsideItem } from "../../_interfaces";
 
 const menuAside: MenuAsideItem[] = [
-  {
-    href: "/dashboard",
-    icon: mdiMonitor,
-    label: "Dashboard",
-  },
+  // {
+  //   href: "/dashboard",
+  //   icon: mdiMonitor,
+  //   label: "Dashboard",
+  // },
   {
     href: "/dashboard/tables",
     label: "Tables",
@@ -72,18 +72,18 @@ const menuAside: MenuAsideItem[] = [
       },
     ],
   },
-  {
-    href: "https://github.com/justboil/admin-one-react-tailwind",
-    label: "GitHub",
-    icon: mdiGithub,
-    target: "_blank",
-  },
-  {
-    href: "https://github.com/justboil/admin-one-vue-tailwind",
-    label: "Vue version",
-    icon: mdiVuejs,
-    target: "_blank",
-  },
+  // {
+  //   href: "https://github.com/justboil/admin-one-react-tailwind",
+  //   label: "GitHub",
+  //   icon: mdiGithub,
+  //   target: "_blank",
+  // },
+  // {
+  //   href: "https://github.com/justboil/admin-one-vue-tailwind",
+  //   label: "Vue version",
+  //   icon: mdiVuejs,
+  //   target: "_blank",
+  // },
 ];
 
 export default menuAside;
